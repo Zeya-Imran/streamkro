@@ -1,0 +1,90 @@
+ const menus = 
+  {
+    id:1,
+    brand:"CustomeThme",
+    link:[
+      {
+        
+        id:2,
+        label:"Home",
+        anchor:"/"
+      },
+      {
+        id:3,
+        label:"Blog",
+        anchor:"/"
+      },
+      {
+        id:4,
+        label:"Category",
+        anchor:"/"
+      },
+      {
+        id:5,
+        label:"Contact",
+        anchor:"/"
+      }
+    ]
+  }
+
+
+
+   {/* <div className='p-10 w-4/12 overflow-hidden'>
+          <Button theme="secondary" onClick={()=>setShow(!show)}>
+            <Icon>home</Icon>
+            Dropdown</Button>
+          <Flip state={show}>
+            <div  className='flex flex-col border shadow-lg ronded-lg w-44 mt-2 '>
+              {
+                menus.link.map((item,index)=>{
+                  return <a href="#" className='px-4 py-2 hover:bg-slate-900 hover:text-white' key={index}>{item.label}</a>
+                })
+              }
+            </div>
+          </Flip>
+        </div> */}
+
+
+
+
+         //const [show,setShow] = useState(false);
+  // const menus = 
+  // {
+  //   id:1,
+  //   brand:"CustomeThme",
+  //   link:[
+  //     {
+        
+  //       id:2,
+  //       label:"Home",
+  //       anchor:"/"
+  //     },
+  //     {
+  //       id:3,
+  //       label:"Blog",
+  //       anchor:"/"
+  //     },
+  //     {
+  //       id:4,
+  //       label:"Category",
+  //       anchor:"/"
+  //     },
+  //     {
+  //       id:5,
+  //       label:"Contact",
+  //       anchor:"/"
+  //     }
+  //   ]
+  // }
+  // const toolbars = [
+  //   {
+  //     label:<IconButton className="text-indigo-100 justify-center items-center">home</IconButton>,
+  //     href:"/"
+  //   },
+  //   {
+  //     label:<IconButton className="text-indigo-100 justify-center items-center">person</IconButton>,
+  //     href:"/"
+  //   }
+  // ]
+
+  // <Navbar menu={menus} variant="between" toolbar={toolbars} fullwidth={false} />
