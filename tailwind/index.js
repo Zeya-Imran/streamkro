@@ -6,6 +6,7 @@ import IconButton from "./icon-button";
 import {Fade, Zoom, Expand, Flip} from "./effect";
 import { Carousel, Slider } from "./animation";
 import Footer from "./footer";
+import Dialog from './dialog';
 import {
   Form,
   Email,
@@ -35,5 +36,6 @@ export{
   Input,
   Select,
   Radio,
-  Checkbox
+  Checkbox,
+  Dialog
 }
