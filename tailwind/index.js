@@ -14,7 +14,8 @@ import {
   Input,
   Select,
   Radio,
-  Checkbox
+  Checkbox,
+  UploadInput
 } from "./form";
 
 export{
@@ -37,5 +38,6 @@ export{
   Select,
   Radio,
   Checkbox,
-  Dialog
+  Dialog,
+  UploadInput
 }

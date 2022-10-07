@@ -1,11 +1,12 @@
 import Form from "./form";
 import {
-Email, 
-Password, 
-Input, 
-Select, 
+Email,
+Password,
+Input,
+Select,
 Radio,
-Checkbox
+Checkbox,
+UploadInput
 } from "./fields";
 
 export {
@@ -15,5 +16,6 @@ export {
     Input,
     Select,
     Radio,
-    Checkbox
+    Checkbox,
+    UploadInput
 }

@@ -29,6 +29,23 @@ export const Input = ({name, type="text",textarea=false, ...rest})=>{
     return designInput;
 }
 
+export const UploadInput = ({className=null, multiple=null, onChange=null, name})=>{
+  const showInput = ()=>{
+    const input= document.createElement("input");
+    input.type = "file";
+    input.multiple=multiple;
+    input.onchange= onChange;
+    input.name=name;
+    input.click();
+  }
+  const design = (
+    <>
+      <button type="button" onClick={showInput} className={className}>Choose file</button>
+    </>
+  );
+  return design;
+}
+
 export const Select = ({name,data, ...rest})=>{
     const designSelect = (
         <>
@@ -53,7 +70,7 @@ export const Radio = ({name,data, ...rest})=>{
                     return (
                         <>
                             <div className="flex gap-3">
-                                <Field key={index} name={name} value={item.value} type="radio" title={item.label} /> 
+                                <Field key={index} name={name} value={item.value} type="radio" title={item.label} />
                                 <label>{data.label}</label>
                             </div>
                         </>
@@ -70,11 +87,11 @@ export const Checkbox = ({name,value,label, ...rest})=>{
         <>
 
              <div className="flex gap-2 items-center">
-                 <Field  {...rest} type="checkbox" title={name} name={name} /> 
+                 <Field  {...rest} type="checkbox" title={name} name={name} />
                  <label>{label}</label>
                  <ErrorMessage name={name} component="p" />
             </div>
-      
+
         </>
     );
     return designCheckbox;

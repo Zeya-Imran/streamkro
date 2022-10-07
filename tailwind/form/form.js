@@ -1,8 +1,11 @@
 import {Formik, Form} from "formik";
 import * as yup from "yup";
 import {Button} from "../";
+import {Input} from "./";
 
-const form = ({children, ...rest})=>{
+
+const form = ({fields})=>{
+  console.log(fields);
    const defaultValues = {
     email: "",
     password:""
@@ -13,18 +16,25 @@ const form = ({children, ...rest})=>{
         password:yup.string().required("Password is required")
     }
    );
+
+   // const Fields = ()=>{
+   //   const allFields = fields.map((item,index)=>{
+   //     const {component, props} = item;
+   //     switch (component) {
+   //       case "input": return <Input  {...props}/>
+   //       default: return null
+   //     }
+   //   });
+   //   return allFields;
+   // }
     const design = (
         <>
-            <Formik
-            initialValues={defaultValues}
-            validationSchema={schema}
-            {...rest}
-            >
+            <Formik>
                 {
                     (formik)=>{
                         return(
                             <Form>
-                                {children}
+                            
                                 <Button type="submit" theme="danger">Submit</Button>
                             </Form>
                         );

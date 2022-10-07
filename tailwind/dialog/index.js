@@ -11,7 +11,7 @@ const index = ({title=null, children})=>{
         title={title}
         show={DialogReducer.open}
         showConfirm={false}
-        onConfirm={false}
+  
         className="relative"
         >
         <button className="text-xs absolute top-3 right-3 text-black"
