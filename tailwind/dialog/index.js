@@ -1,7 +1,7 @@
 import SweetAlert from "react-bootstrap-sweetalert";
 import {useSelector, useDispatch} from "react-redux";
 
-const index = ({title=null, children})=>{
+const index = ({title="", children})=>{
   const dispatch = useDispatch(); //calling as hooks for closing SweetAlert
   const {DialogReducer} = useSelector(response=>response);
   const design = (
@@ -11,7 +11,7 @@ const index = ({title=null, children})=>{
         title={title}
         show={DialogReducer.open}
         showConfirm={false}
-  
+
         className="relative"
         >
         <button className="text-xs absolute top-3 right-3 text-black"

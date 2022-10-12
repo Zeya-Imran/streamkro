@@ -74,7 +74,8 @@ const index = ()=>{
       props:{
         name:"thumbnail",
         className:"bg-gray-100 rounded-sm border-2 py-3 px-2 text-left",
-        label:"Thumbnail"
+        label:"Thumbnail",
+        accept:"image/*"
       }
     },
     {
@@ -82,7 +83,9 @@ const index = ()=>{
       props:{
         name:"video",
         className:"bg-gray-100 rounded-sm border-2 py-3 px-2 text-left",
-        label:"Video File"
+        label:"Video File",
+        accept:".mp4",
+        multiple:true
       }
     }
   ];
@@ -102,7 +105,7 @@ const index = ()=>{
 
   const design = (
       <>
-        <Dialog>
+        <Dialog titile="">
           <MovieForm />
         </Dialog>
       </>

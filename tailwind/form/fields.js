@@ -1,94 +1,124 @@
-import {Field, ErrorMessage} from "formik";
-export const Email = ({...rest})=>{
-    const designEmail = (
-        <>
-            <Field className="p-2 rounded-sm" name="email" type="email" {...rest} />
-            <ErrorMessage name="email" component="p" className="text-red-500 text-sm p-0 m-0 text-left" />
-        </>
-    );
-    return designEmail;
+import {
+  Field,
+  ErrorMessage
+} from "formik";
+import {useState} from "react";
+import {
+  Icon
+} from "../../tailwind";
+
+export const Email = ({label=null,...rest})=>{
+  const email = (
+    <>
+      <div className={`flex flex-col col-span-${rest.width}`}>
+        {
+          label ? <label className="font-bold text-sm mb-2 text-left">{label}</label> : null
+        }
+        <Field name="email" type="email" className="rounded-sm" {...rest} />
+        <ErrorMessage name="email" component="p" className="text-left text-red-500 text-sm font-bold p-0 m-0" />
+      </div>
+    </>
+  );
+  return email;
 }
 
 export const Password = ({...rest})=>{
-    const designPassword = (
-        <>
-            <Field className="p-2 rounded-sm" name="password" type="password" {...rest} />
-            <ErrorMessage name="password" component="p" className="text-red-500 text-sm p-0 m-0 text-left" />
-        </>
-    );
-    return designPassword;
+  const password = (
+    <>
+      <Field name="password" type="password" className="rounded-sm" {...rest} />
+      <ErrorMessage name="password" component="p" className="text-red-500 text-sm font-bold p-0 m-0" />
+    </>
+  );
+  return password;
 }
 
-export const Input = ({name, type="text",textarea=false, ...rest})=>{
-    const designInput = (
-        <>
-            <Field className="p-2 rounded-sm" {...rest} name={name} type={type} as={textarea ? "textarea" : null } />
-            <ErrorMessage name={name} component="p" className="text-red-500 text-sm p-0 m-0 text-left" />
-        </>
-    );
-    return designInput;
-}
-
-export const UploadInput = ({label=null,...rest})=>{
+export const Input = ({label=null,name,type="text",textarea=false,...rest})=>{
   const input = (
-    <div className="flex flex-col text-left">
-      {
-        label? <label className="mb-1">{label}</label>:null
-      }
-        <Field type="file" {...rest} />
-        <ErrorMessage name={rest.name} component="p" className="text-red-500 text-sm p-0 m-0 text-left" />
-    </div>
+    <>
+      <div className={`flex flex-col col-span-${rest.width}`}>
+        {
+          label ? <label className="font-bold text-sm mb-2 text-left">{label}</label> : null
+        }
+        <Field {...rest} name={name} type={type} as={textarea ? "textarea" : null} />
+        <ErrorMessage name={name} component="p" className="text-red-500 text-left text-sm font-bold p-0 m-0" />
+      </div>
+    </>
   );
   return input;
 }
 
-export const Select = ({name,data, ...rest})=>{
-    const designSelect = (
-        <>
-            <Field {...rest} name={name} as="select">
-                {
-                    data.map((item,index)=>{
-                        return  <option key={index} value={item.value} title={item.label}>{item.label}</option>
-                    })
-                }
-            </Field>
-            <ErrorMessage name={name} component="p"  className="text-red-500 text-sm p-0 m-0 text-left" />
-        </>
-    );
-    return designSelect;
+export const UploadInput = ({label=null,formik,...rest})=>{
+  const handleFile = (e)=>{
+    let name = e.target.name;
+    let multiple = e.target.multiple;
+    let files = multiple ? e.target.files : e.target.files[0];
+    formik.setFieldValue(name,files);
+  }
+  const input = (
+    <>
+      <div className="flex flex-col">
+        {
+          label ? <label className="font-bold text-sm mb-2 text-left">{label}</label> : null
+        }
+        <input type="file" {...rest} onChange={handleFile} />
+        <ErrorMessage name={rest.name} component="p" className="text-left text-red-500 text-sm font-bold p-0 m-0" />
+      </div>
+    </>
+  );
+  return input;
 }
 
-export const Radio = ({name,data, ...rest})=>{
-    const designRadio = (
-        <>
-            {
-                data.map((item,index)=>{
-                    return (
-                        <>
-                            <div className="flex gap-3">
-                                <Field key={index} name={name} value={item.value} type="radio" title={item.label} />
-                                <label>{data.label}</label>
-                            </div>
-                        </>
-                    );
-                })
-            }
-        </>
-    );
-    return designRadio;
+export const Select = ({label=null,name,data,...rest})=>{
+  const select = (
+    <>
+      <div className={`flex flex-col col-span-${rest.width}`}>
+        {
+          label ? <label className="font-bold text-sm mb-2 text-left">{label}</label> : null
+        }
+        <Field name={name} as="select" {...rest}>
+          {
+            data.map((item,index)=>{
+              return <option key={index} value={item.value}>{item.label}</option>
+            })
+          }
+        </Field>
+        <ErrorMessage name={name} component="p" className="text-left text-red-500 text-sm font-bold p-0 m-0" />
+      </div>
+    </>
+  );
+  return select;
 }
 
-export const Checkbox = ({name,value,label, ...rest})=>{
-    const designCheckbox = (
-        <>
+export const Radio = ({name,data})=>{
+  const radio = (
+    <>
+      {
+        data.map((item,index)=>{
+          return (
+            <>
+              <div className="flex gap-2 items-center" key={index}>
+                <Field name={name} value={item.value} type="radio" />
+                <label>{item.label}</label>
+              </div>
+            </>
+          )
+        })
+      }
+      <ErrorMessage name={name} component="p" className="text-red-500 text-sm font-bold p-0 m-0" />
+    </>
+  );
+  return radio;
+}
 
-             <div className="flex gap-2 items-center">
-                 <Field  {...rest} type="checkbox" title={name} name={name} />
-                 <label>{label}</label>
-                 <ErrorMessage name={name} component="p" />
-            </div>
-
-        </>
-    );
-    return designCheckbox;
+export const Checkbox = ({name,value,label,...rest})=>{
+  const checkbox = (
+    <>
+      <div className="flex gap-2 items-center">
+        <Field type="checkbox" name={name} value={value} {...rest} />
+        <label>{label}</label>
+      </div>
+      <ErrorMessage name={name} component="p" className="text-red-500 text-sm font-bold p-0 m-0" />
+    </>
+  );
+  return checkbox;
 }

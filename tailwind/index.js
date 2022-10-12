@@ -7,16 +7,7 @@ import {Fade, Zoom, Expand, Flip} from "./effect";
 import { Carousel, Slider } from "./animation";
 import Footer from "./footer";
 import Dialog from './dialog';
-import {
-  Form,
-  Email,
-  Password,
-  Input,
-  Select,
-  Radio,
-  Checkbox,
-  UploadInput
-} from "./form";
+import  Form from "./form";
 
 export{
   Button,
@@ -32,12 +23,5 @@ export{
   Slider,
   Footer,
   Form,
-  Email,
-  Password,
-  Input,
-  Select,
-  Radio,
-  Checkbox,
-  Dialog,
-  UploadInput
+  Dialog
 }

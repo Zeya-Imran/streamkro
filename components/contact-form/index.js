@@ -1,21 +1,50 @@
 import {
-    Form,
-    Email,
-    Input
+  Form
 } from "../../tailwind";
-const contactForm = ()=>{
-    const design = (
-        <>
-           <Form>
-                <div className="flex flex-col gap-5 mb-5">
-                    <Input name="username" placeholder="Your Name" />
-                    <Email placeholder="email@gmail.com"  />
-                    <Input name="mobile" placeholder="Mobile no" />
-                    <Input name="message" type="text" placeholder="Your Message" textarea/>
-                </div>
-           </Form>
-        </>
-    );
-    return design;
+
+const index = ()=>{
+  const fields = [
+    {
+      component: "input",
+      props: {
+        name: "fullname",
+        placeholder: "Your name",
+        className: "p-2"
+      }
+    },
+    {
+      component: "input",
+      props: {
+        name: "mobile",
+        placeholder: "Mobile",
+        type: "number",
+        className: "p-2"
+      }
+    },
+    {
+      component: "email",
+      props: {
+        name: "email",
+        placeholder: "Email",
+        className: "p-2"
+      }
+    },
+    {
+      component: "input",
+      props: {
+        name: "message",
+        placeholder: "Message",
+        textarea: true,
+        className: "p-2"
+      }
+    },
+  ];
+  const design = (
+    <>
+      <Form fields={fields} />
+    </>
+  );
+  return design;
 }
-export default contactForm;
+
+export default index;
