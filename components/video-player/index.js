@@ -14,7 +14,7 @@ const index = ()=>{
     const options = {
         sources:[
             {
-                src:'/Today/index.m3u8',
+                src:'https://streamkro.s3.ap-south-1.amazonaws.com/hls/video-2.m3u8',
                 type: 'application/x-mpegURL'
             }
         ],
@@ -24,7 +24,7 @@ const index = ()=>{
         fluid:true
     }
 
-    const onReady = (player)=>{   
+    const onReady = (player)=>{
      //console.log(player); //all features of viodejs player
     //    player.seekButtons({
     //     forward:10,
@@ -39,7 +39,7 @@ const index = ()=>{
             enableVolumeScroll:true
         });
 
-     
+
     }
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -53,7 +53,7 @@ const index = ()=>{
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
-    // updating video url 
+    // updating video url
     const update = ()=>{
         player.current.src(
                 {

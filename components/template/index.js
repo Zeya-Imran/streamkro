@@ -1,14 +1,14 @@
 import {Navbar, IconButton, Footer} from "../../tailwind";
 import Logo from "../logo";
 const template = ({children})=>{
-  console.table({children});
-    const menus = 
+
+    const menus =
     {
       id:1,
       brand:<Logo />,
       link:[
         {
-          
+
           id:2,
           label:"HOME",
           anchor:"/"
@@ -50,7 +50,7 @@ const template = ({children})=>{
               {children}
             </div>
             <Footer />
-            
+
         </>
     );
 return design;
